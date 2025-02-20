@@ -19,7 +19,7 @@
 }
 
 .profile-imagem {
-    width: 98%;
+    width: 100%;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
@@ -27,6 +27,7 @@
     align-items: center;
     position: relative;
     z-index: 1;
+
 }
 
 .profile-img {
@@ -35,6 +36,8 @@
     object-fit: cover;
     object-position: center;
     transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+
 }
 
 /* Gradiente na parte inferior */
@@ -59,7 +62,7 @@
     color: white;
     z-index: 2;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    width: 80%;
+    width: 90%;
 }
 
 .profile-info-nome {
@@ -73,7 +76,7 @@
     margin-bottom: -30px;
     white-space: nowrap;
     position: relative;
-    left: 36%;
+    left: 50%;
     transform: translateX(-50%);
 
 

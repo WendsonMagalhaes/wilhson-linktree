@@ -1,0 +1,427 @@
+/* Reset básico */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #333;
+}
+
+/* Cabeçalho com contato e redes sociais */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #A6A6A6;
+    color: #ffffff;
+    height: 30px;
+}
+
+/* Informações de contato */
+.top-header .contact-info {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+/* Ícones das redes sociais */
+.social-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.icon-social {
+    font-size: 25px;
+    color: #ffffff;
+}
+
+/* Menu */
+.menu {
+    background-color: #000;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    background-color: #ff914d;
+    border-radius: 5px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-list {
+    display: flex;
+}
+
+.icon-close {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #000;
+    }
+
+    .menu-toggle .icon {
+        transition: color 0.3s;
+        color: #ffffff;
+        font-size: 35px;
+
+
+    }
+
+    .menu-toggle:hover .icon {
+        color: #FF914D;
+    }
+
+    /* Ícone de fechar no topo direito */
+    .close-button {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .icon-close {
+        display: block;
+        font-size: 25px;
+        color: white;
+        transition: color 0.3s;
+    }
+
+    .icon-close:hover {
+        color: #FF914D;
+    }
+
+    .menu-list {
+        position: fixed;
+        left: -100%;
+        width: 100%;
+        height: auto;
+        background-color: #000;
+        transition: left 0.3s ease;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+    .menu-list.open {
+        left: 0;
+        /* Mostra o menu quando aberto */
+    }
+}
+
+/* Estilo das imagens */
+.portfolio-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    /* Ajuste para o cabeçalho em telas menores */
+    .top-header {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: auto;
+        padding: 15px 20px;
+    }
+
+    /* Dividir os itens do cabeçalho em duas colunas */
+    .top-header .contact-info,
+    .top-header .social-icons {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* Ajustar os itens dentro de cada coluna */
+    .contact-info p,
+    .social-icons a {
+        margin-bottom: 8px;
+    }
+
+    /* Ajuste da fonte e tamanho dos ícones */
+    .contact-info {
+        font-size: 14px;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+
+    .icon-social {
+        font-size: 30px;
+    }
+
+    /* Ajuste do menu */
+    .menu ul {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .menu li {
+        margin-bottom: 10px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Reduzir o tamanho da fonte nos dispositivos menores */
+    .contact-info {
+        font-size: 12px;
+    }
+
+    .icon-social {
+        font-size: 28px;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+}
+
+/* Seção de Capa */
+.portfolio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60vh;
+    color: #000;
+    background-color: #FF914D;
+    padding: 0 10px;
+
+}
+
+.header-text {
+    flex: 2;
+    max-width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-text h1 {
+    font-size: 5rem;
+    margin-bottom: -50px;
+
+}
+
+.header-text h2 {
+    font-size: 7rem;
+    font-family: "Hurricane", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 20px;
+    margin-bottom: -50px;
+}
+
+.header-text h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    width: 50%;
+    margin-top: 35px;
+
+}
+
+.header-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Carrossel de Imagens */
+.header-images {
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    /* Garante que nada escape da div */
+}
+
+.image-header {
+    width: 100%;
+    height: 100%;
+    max-height: 555px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .portfolio-header {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .header-text {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .header-images {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .image-header {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+/* Seção de Sobre mim */
+.portfolio-abaut {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000;
+    background-color: #FF914D;
+    padding: 0 10px;
+}
+
+.abaut-text {
+    flex: 2;
+    max-width: 50%;
+    padding: 20px;
+
+}
+
+.abaut-text h1 {
+    font-size: 5rem;
+    margin-bottom: -100px;
+    margin-left: 20px;
+
+}
+
+
+.abaut-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Carrossel de Imagens */
+.abaut-images {
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    /* Garante que nada escape da div */
+}
+
+.abaut-image-carousel {
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .portfolio-abaut {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .abaut-text {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .abaut-images {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .abaut-image-carousel {
+        width: 100%;
+        height: 300px;
+    }
+}

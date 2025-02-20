@@ -15,6 +15,7 @@
 
 .profile {
     margin-bottom: 20px;
+    padding: 20px;
 }
 
 .profile-imagem {
@@ -58,6 +59,7 @@
     color: white;
     z-index: 2;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
 }
 
 .profile-info-nome {

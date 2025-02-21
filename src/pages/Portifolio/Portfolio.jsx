@@ -100,8 +100,8 @@ const Portfolio = () => {
             {/* Seção de Sobre mim */}
             <section className="portfolio-abaut" style={{ marginTop: '5px' }}>
                 <div className="abaut-text">
-                    <h1 style={{ color: '#ffffff' }}>Quem</h1>
-                    <h1>sou eu?</h1>
+                    <h1 id="abaut-text-h1-01" style={{ color: '#ffffff' }}>Quem</h1>
+                    <h1 id="abaut-text-h1-02">sou eu?</h1>
                     <p style={{ marginTop: '120px' }}><strong>Sou Wilkson Freitas</strong>, Gerente de Operações e criador de conteúdo
                         apaixonado por conectar marcas e pessoas de forma genuína e criativa. Há
                         seis meses, dei um novo passo na minha jornada profissional, ingressando

@@ -467,6 +467,8 @@ body {
     .header-text h2 {
         font-size: 4rem;
         margin-top: 30px;
+        white-space: nowrap;
+        position: relative;
     }
 
     .header-text h4 {

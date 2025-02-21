@@ -6,7 +6,21 @@ import { BsEnvelopeAt } from "react-icons/bs";
 import imagem_01 from "../../asserts/imagens/imagem-01.jpeg"
 import imagem_02 from "../../asserts/imagens/imagem-02.jpeg"
 import imagem_03 from "../../asserts/imagens/imagem-03.jpeg"
+import imagem_04 from "../../asserts/imagens/imagem-04.jpeg"
+import logo_cacau_brasil from "../../asserts/imagens/logo-cacau-brasil.png"
+import logo_container_baby_kids from "../../asserts/imagens/logo-container-baby-kids.jpeg"
+import logo_milkymoo from "../../asserts/imagens/logo-milkymoo.png"
+import logo_sel_fit from "../../asserts/imagens/logo-sel-fit.png"
+
+
 import { FaBars, FaTimes } from "react-icons/fa";
+import Card from "../../components/Card/Card";
+import { FaUsers, FaHeart, FaComment, FaCamera } from "react-icons/fa";
+import { FaEye, FaMapMarkerAlt, FaUserClock } from "react-icons/fa";
+import CardMetric from "../../components/CardMetric/CardMetric";
+
+
+
 
 
 
@@ -17,7 +31,18 @@ const Portfolio = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isSticky, setIsSticky] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const metrics = [
+        { id: 1, icon: <FaUsers />, label: "Seguidores", value: "12.5K" },
+        { id: 2, icon: <FaHeart />, label: "Curtidas", value: "8.2K" },
+        { id: 3, icon: <FaComment />, label: "Comentários", value: "4.5K" },
+        { id: 4, icon: <FaCamera />, label: "Postagens", value: "320" },
+    ];
 
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
 
 
     useEffect(() => {
@@ -45,6 +70,44 @@ const Portfolio = () => {
     }, []);
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
+
+    };
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const { name, email, message } = formData;
+
+        if (!name || !email || !message) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
+        // Enviar email
+        try {
+            const response = await fetch("/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            if (response.ok) {
+                alert("Email enviado com sucesso!");
+            } else {
+                alert("Erro ao enviar o email.");
+            }
+        } catch (error) {
+            alert("Erro ao enviar o email.");
+        }
     };
 
     return (
@@ -124,6 +187,138 @@ const Portfolio = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Seção de Trabalhos */}
+            <section className="portfolio-projects">
+                <h1 className="section-title">ALGUNS TRABALHOS</h1>
+                <p className="section-sub-title" >Estes são alguns dos trabalhos que prestei.</p>
+                <div className=".projects-container">
+                    <div className="projects-grid">
+                        <Card
+                            image={logo_cacau_brasil}
+                            title="Brasil Cacau"
+                            description="Campanha especial para a marca Brasil Cacau."
+                        />
+                        <Card
+                            image={logo_milkymoo}
+                            title="MilkyMoo"
+                            description="Colaboração com a MilkyMoo para engajar a audiência."
+                        />
+                        <Card
+                            image={logo_container_baby_kids}
+                            title="Container Baby Kids"
+                            description="Parceria incrível com a Container Baby Kids."
+                        />
+                        <Card
+                            image={logo_sel_fit}
+                            title="Sel Fit"
+                            description="Parceria incrível como Embaixador da Sel Fit."
+                        />
+
+                    </div>
+                </div>
+            </section>
+            {/*Seção Metricas */}
+            <section className="social-stats-container">
+                <h2 className="section-title">REDES SOCIAL</h2>
+                <p className="section-sub-title">Visão geral das interações e engajamento</p>
+                <div className="metrics-container">
+                    {metrics.map((metric) => (
+                        <CardMetric key={metric.id} metric={metric} />
+                    ))}
+
+                </div>
+                <div className="stats-container">
+
+                    <div className="stats-card">
+                        <div className="stat-item">
+                            <FaEye className="stat-icon" />
+                            <p>
+                                <strong>+458 Mil</strong> Visualizações no mês
+                            </p>
+                        </div>
+                        <div className="stat-item">
+                            <FaMapMarkerAlt className="stat-icon" />
+                            <p>
+                                <strong>Público:</strong> Campina Grande, João Pessoa, Recife, São Paulo
+                            </p>
+                        </div>
+                        <div className="stat-item">
+                            <FaUserClock className="stat-icon" />
+                            <p>
+                                <strong>Faixa etária:</strong>
+                                <br /> 25 a 34 - 43,4%
+                                <br /> 35 a 44 - 34,7%
+                            </p>
+                        </div>
+                    </div>
+                    {/* Segunda parte - Mosaico de Imagens */}
+                    <div className="image-mosaic">
+                        <div className="large-image">
+                            <img src={imagem_03} alt="Imagem grande" />
+                        </div>
+                        <div className="small-images">
+                            <img src={imagem_01} alt="Imagem 2" />
+                            <img src={imagem_02} alt="Imagem 3" />
+                            <img src={imagem_03} alt="Imagem 4" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className="thank-you-section">
+                <div className="thank-you-content">
+                    <div className="thank-you-message">
+                        <h2>Agradecemos pelo seu apoio!</h2>
+                        <p>
+                            Estamos felizes com o seu interesse. Se tiver alguma dúvida ou deseja entrar em contato, fique à vontade para enviar um e-mail. Estamos sempre à disposição.
+                        </p>
+                    </div>
+                    <div className="thank-you-image">
+                        <img src={imagem_04} alt="Agradecimento" />
+                    </div>
+                </div>
+
+                <div className="email-form">
+                    <h3>Envie um E-mail para o Blogueiro</h3>
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="name">Nome:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">E-mail:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="message">Mensagem:</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                required
+                            ></textarea>
+                        </div>
+                        <button type="submit">Enviar E-mail</button>
+                    </form>
+                </div>
+            </section>
+
+
         </div>
     );
 };

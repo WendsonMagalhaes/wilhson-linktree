@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Portfolio.css";
-import { FaInstagram, FaYoutube, FaTiktok, FaGlobe } from "react-icons/fa";
+import { FaInstagram, FaYoutube, FaTiktok, FaGlobe, FaWhatsapp } from "react-icons/fa";
 import { HiOutlinePhone } from "react-icons/hi";
 import { BsEnvelopeAt } from "react-icons/bs";
 import imagem_01 from "../../asserts/imagens/imagem-01.jpeg"
@@ -11,6 +11,8 @@ import logo_cacau_brasil from "../../asserts/imagens/logo-cacau-brasil.png"
 import logo_container_baby_kids from "../../asserts/imagens/logo-container-baby-kids.jpeg"
 import logo_milkymoo from "../../asserts/imagens/logo-milkymoo.png"
 import logo_sel_fit from "../../asserts/imagens/logo-sel-fit.png"
+import background_01 from "../../asserts/imagens/backgroun-01.png"
+
 
 
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -150,6 +152,7 @@ const Portfolio = () => {
             {/* Seção de Capa */}
             <section className="portfolio-header">
                 <div className="header-text">
+                    <img className="imagem-background" src={background_01} alt=""></img>
                     <h1>PORTFÓLIO APRESENTAÇÃO</h1>
                     <h2>Wilkson Freitas</h2>
                     <h4>Transformamos conexões em experiências inesquecíveis ao unir autenticidade e criatividade para inspirar, engajar e construir juntos algo extraordinário!</h4>
@@ -268,53 +271,59 @@ const Portfolio = () => {
             <section className="thank-you-section">
                 <div className="thank-you-content">
                     <div className="thank-you-message">
-                        <h2>Agradecemos pelo seu apoio!</h2>
-                        <p>
-                            Estamos felizes com o seu interesse. Se tiver alguma dúvida ou deseja entrar em contato, fique à vontade para enviar um e-mail. Estamos sempre à disposição.
-                        </p>
+                        <h2 className="thank-you-message-title-01">...</h2>
+                        <h2 className="thank-you-message-title-02">MUITO
+                            OBRIGADO!</h2>
+                        <h2 className="thank-you-message-title-03">...</h2>
                     </div>
                     <div className="thank-you-image">
                         <img src={imagem_04} alt="Agradecimento" />
                     </div>
                 </div>
+                <div className="thank-you-content-forms">
 
-                <div className="email-form">
-                    <h3>Envie um E-mail para o Blogueiro</h3>
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name">Nome:</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">E-mail:</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="message">Mensagem:</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleInputChange}
-                                required
-                            ></textarea>
-                        </div>
-                        <button type="submit">Enviar E-mail</button>
-                    </form>
+                    <div className="email-form">
+
+                        <h3>Entre em contato e faça um orçamento sem compromisso</h3>
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="name">Nome:</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">E-mail:</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="message">Mensagem:</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit">Enviar E-mail</button>
+                            <a href="https://instagram.com"><FaWhatsapp className="icon-contato" /></a>
+
+                        </form>
+
+                    </div>
                 </div>
             </section>
 

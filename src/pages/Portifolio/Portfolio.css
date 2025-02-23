@@ -234,10 +234,15 @@ body {
     justify-content: space-between;
     height: 60vh;
     color: #000;
-    padding: 0 10px;
+    padding: 0px 5px;
     border-bottom: 5px solid #000;
 
+}
 
+.imagem-background {
+    transform: translate(-450px, -150px);
+    z-index: -1;
+    margin-bottom: -500px;
 }
 
 .header-text {
@@ -249,6 +254,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-left: 50px;
 }
 
 .header-text h1 {
@@ -289,6 +295,7 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding: -110px;
     /* Garante que nada escape da div */
 }
 
@@ -298,7 +305,6 @@ body {
     max-height: 555px;
     object-fit: cover;
     object-position: center;
-    border-radius: 15px;
     opacity: 1;
     transition: opacity 1s ease;
 }
@@ -347,6 +353,7 @@ body {
     color: #000;
     border-bottom: 5px solid #000;
     padding: 0 10px;
+
 }
 
 .abaut-text {
@@ -506,12 +513,15 @@ body {
     border-radius: 10px;
     text-align: center;
     margin: auto;
+    border-bottom: 5px solid #000;
+
 }
 
 .social-stats-container h2 {
     margin-bottom: 15px;
     font-size: 20px;
     color: #333;
+
 }
 
 .stats-card {
@@ -606,40 +616,88 @@ body {
     gap: 30px;
     padding: 30px;
     flex-wrap: wrap;
+    border-bottom: 5px solid #000;
 }
 
 .thank-you-content {
     display: flex;
     width: 100%;
     gap: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+
+    /* Movendo a borda */
+    position: relative;
+
+}
+
+/* Criando uma borda deslocada */
+.thank-you-content::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    /* Move para baixo */
+    left: 50px;
+    /* Move para a esquerda */
+    width: 90%;
+    height: 95%;
+    border: 10px solid #9c9a9a;
+    border-radius: 1px;
+    z-index: 1;
+    /* Mantém a borda atrás do conteúdo */
 }
 
 .thank-you-message {
-    flex: 1;
+    flex: 1.5;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
 }
 
 .thank-you-image {
     flex: 1;
+    opacity: 60%;
 }
 
-.thank-you-message h2 {
-    font-size: 24px;
+.thank-you-message-title-01 {
+    font-size: 5rem;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: -70px;
+
+}
+
+.thank-you-message-title-02 {
+    font-size: 5rem;
     margin-bottom: 10px;
+    text-align: center;
+    justify-content: center;
 }
 
-.thank-you-message p {
-    font-size: 16px;
-    color: #555;
+.thank-you-message-title-03 {
+    font-size: 5rem;
+    text-align: center;
+    justify-content: center;
+    margin-top: -60px;
+    margin-bottom: -20px;
+
+
 }
+
 
 .thank-you-image img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+}
+
+.thank-you-content-forms {
+    padding: 130px 30px;
 }
 
 .email-form {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -647,11 +705,13 @@ body {
     max-width: 500px;
     margin-top: 20px;
     max-height: 400px;
+    border: 5px solid #9c9a9a;
 }
 
 .email-form h3 {
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .email-form .form-group {
@@ -659,8 +719,8 @@ body {
 }
 
 .email-form label {
-    font-size: 14px;
-    color: #333;
+    font-size: .9rem;
+    color: #000;
 }
 
 .email-form input,
@@ -670,21 +730,40 @@ body {
     margin-top: 5px;
     font-size: 14px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 2px solid #9c9a9a;
 }
 
 .email-form button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #FF914D;
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    display: block;
+    margin: 20px auto;
+
 }
 
 .email-form button:hover {
-    background-color: #45a049;
+    background-color: #FF6300;
+    scale: 1.2;
+
+}
+
+.icon-contato {
+    font-size: 3rem;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-top: -50px;
+    color: #FF914D;
+}
+
+.icon-contato:hover {
+    color: #FF6300;
+    scale: 1.2;
 }
 
 @media (max-width: 480px) {
@@ -724,6 +803,11 @@ body {
 
     .header-text h1 {
         font-size: 2.5rem;
+        margin-top: -40px;
+    }
+
+    .imagem-background {
+        display: none;
     }
 
     .header-text h2 {
@@ -824,4 +908,84 @@ body {
 
 
 
+
+
+}
+
+@media (max-width: 768px) {
+    .thank-you-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+        align-items: center;
+        margin-top: -80px;
+    }
+
+    .thank-you-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        margin-left: -10px;
+    }
+
+    .thank-you-content::before {
+        display: none;
+    }
+
+    .thank-you-message {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .thank-you-message-title-01 {
+        font-size: 2.5rem;
+        /* Reduz o tamanho do texto */
+        margin-bottom: -30px;
+    }
+
+    .thank-you-message-title-02 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .thank-you-message-title-03 {
+        font-size: 2.5rem;
+        margin-bottom: -10px;
+    }
+
+    .thank-you-image {
+        width: 100%;
+        opacity: 80%;
+        margin-left: 50px;
+    }
+
+    .thank-you-image img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        /* Limita o tamanho no celular */
+    }
+
+    .thank-you-content-forms {
+        padding: 5px 5px;
+        margin-top: -20px;
+        margin-left: -20px;
+    }
+
+    .email-form {
+        width: 90%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    .email-form button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .icon-contato {
+        font-size: 2rem;
+        margin-top: -20px;
+    }
 }

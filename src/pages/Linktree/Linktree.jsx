@@ -1,6 +1,6 @@
 import React from "react";
 import "./Linktree.css";
-import imahem_03 from "../../asserts/imagens/imagem-03.jpeg";
+import imahem_03 from "../../assets/imagens/imagem-03.jpeg";
 import { FaInstagram, FaYoutube, FaTiktok, FaGlobe } from "react-icons/fa";
 
 

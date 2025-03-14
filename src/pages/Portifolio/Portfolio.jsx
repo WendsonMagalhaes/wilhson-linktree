@@ -3,15 +3,24 @@ import "./Portfolio.css";
 import { FaInstagram, FaYoutube, FaTiktok, FaGlobe, FaWhatsapp } from "react-icons/fa";
 import { HiOutlinePhone } from "react-icons/hi";
 import { BsEnvelopeAt } from "react-icons/bs";
-import imagem_01 from "../../asserts/imagens/imagem-01.jpeg"
-import imagem_02 from "../../asserts/imagens/imagem-02.jpeg"
-import imagem_03 from "../../asserts/imagens/imagem-03.jpeg"
-import imagem_04 from "../../asserts/imagens/imagem-04.jpeg"
-import logo_cacau_brasil from "../../asserts/imagens/logo-cacau-brasil.png"
-import logo_container_baby_kids from "../../asserts/imagens/logo-container-baby-kids.jpeg"
-import logo_milkymoo from "../../asserts/imagens/logo-milkymoo.png"
-import logo_sel_fit from "../../asserts/imagens/logo-sel-fit.png"
-import background_01 from "../../asserts/imagens/backgroun-01.png"
+import imagem_01 from "../../assets/imagens/imagem-01.webp"
+import imagem_02 from "../../assets/imagens/imagem-02.jpeg"
+import imagem_03 from "../../assets/imagens/imagem-03.jpeg"
+import imagem_04 from "../../assets/imagens/imagem-04.jpeg"
+import frame_phone from "../../assets/imagens/frame-phone.png"
+import slider_image_01 from '../../assets/imagens/slider-image-01.jpeg'
+import slider_image_02 from '../../assets/imagens/slider-image-02.jpeg'
+import slider_image_03 from '../../assets/imagens/slider-image-03.jpeg'
+import slider_image_04 from '../../assets/imagens/slider-image-04.jpeg'
+import slider_image_05 from '../../assets/imagens/slider-image-05.jpeg'
+import slider_image_06 from '../../assets/imagens/slider-image-06.jpeg'
+
+import logo_cacau_brasil from "../../assets/imagens/logo-cacau-brasil.png"
+import logo_container_baby_kids from "../../assets/imagens/logo-container-baby-kids.jpeg"
+import logo_milkymoo from "../../assets/imagens/logo-milkymoo.png"
+import logo_sel_fit from "../../assets/imagens/logo-sel-fit.png"
+import background_01 from "../../assets/imagens/backgroun-01.png"
+import SliderImage from "../../components/SliderImage/SliderImage";
 
 
 
@@ -20,6 +29,8 @@ import Card from "../../components/Card/Card";
 import { FaUsers, FaHeart, FaComment, FaCamera } from "react-icons/fa";
 import { FaEye, FaMapMarkerAlt, FaUserClock } from "react-icons/fa";
 import CardMetric from "../../components/CardMetric/CardMetric";
+import FlipCard from "../../components/FlipCard/FlipCard";
+import InstagramVideoFrame from "../../components/InstagramVideoFrame/InstagramVideoFrame";
 
 
 
@@ -30,15 +41,27 @@ import CardMetric from "../../components/CardMetric/CardMetric";
 
 const Portfolio = () => {
     const images = [imagem_02, imagem_01, imagem_03];
+    const sliderImage = [slider_image_01, slider_image_02, slider_image_03, slider_image_04, slider_image_05, slider_image_06]
+    // Lista de imagens
+    const imagens = [
+        require("../../assets/imagens/imagem-01.webp"),
+        require("../../assets/imagens/imagem-02.jpeg"),
+        require("../../assets/imagens/imagem-03.jpeg"),
+        require("../../assets/imagens/imagem-04.jpeg"),
+    ];
+
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isSticky, setIsSticky] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [views, setViews] = useState(null);
+
     const metrics = [
-        { id: 1, icon: <FaUsers />, label: "Seguidores", value: "12.5K" },
-        { id: 2, icon: <FaHeart />, label: "Curtidas", value: "8.2K" },
-        { id: 3, icon: <FaComment />, label: "Comentários", value: "4.5K" },
-        { id: 4, icon: <FaCamera />, label: "Postagens", value: "320" },
+        { id: 1, icon: <FaUsers />, label: "Seguidores", value: 6977 },
+        { id: 2, icon: <FaHeart />, label: "Curtidas", value: 80000 },
+        { id: 3, icon: <FaComment />, label: "Comentários", value: 4500 },
+        { id: 4, icon: <FaCamera />, label: "Postagens", value: 463 },
     ];
+
 
     const [formData, setFormData] = useState({
         name: "",
@@ -111,6 +134,22 @@ const Portfolio = () => {
             alert("Erro ao enviar o email.");
         }
     };
+    useEffect(() => {
+        // Carregar o script do Instagram para exibir o vídeo corretamente
+        const script = document.createElement("script");
+        script.src = "https://www.instagram.com/embed.js";
+        script.async = true;
+        script.onload = () => {
+            window.instgrm.Embeds.process(); // Processa os embeds após o carregamento
+        };
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
+
 
     return (
         <div className="portfolio-container">
@@ -118,15 +157,17 @@ const Portfolio = () => {
             <header className="top-header">
                 <div className="contact-info">
                     <p><HiOutlinePhone className="icon" />
-                        (11) 99999-9999</p>
+                        (83) 99672-4214</p>
                     <p>|</p>
-                    <p><BsEnvelopeAt className="icon" /> contato@blogueiro.com</p>
+                    <p><BsEnvelopeAt className="icon" /> wilkpublicidade@gmail.com</p>
                 </div>
                 <div className="social-icons">
-                    <a href="https://instagram.com"><FaInstagram className="icon-social" /></a>
-                    <a href="https://instagram.com"><FaYoutube className="icon-social" /></a>
-                    <a href="https://instagram.com"><FaTiktok className="icon-social" /></a>
-                    <a href="https://instagram.com"><FaGlobe className="icon-social" /></a>
+                    <a href="https://www.instagram.com/wilksonfreitas?igsh=aDFxaGd4MGt1ODVp&utm_source=qr" target="_blank"
+                        rel="noopener noreferrer"><FaInstagram className="icon-social" /></a>
+                    <a href="https://www.tiktok.com/@wilksonfreitasoficial?_t=ZM-8u5Lu40tU9O&_r=1" target="_blank"
+                        rel="noopener noreferrer"><FaTiktok className="icon-social" /></a>
+                    <a href="https://wilkson-freitas.vercel.app/" target="_blank"
+                        rel="noopener noreferrer"><FaGlobe className="icon-social" /></a>
                 </div>
             </header>
 
@@ -143,9 +184,12 @@ const Portfolio = () => {
                         <FaTimes className="icon-close" />
                     </div>
                     <li><a href="https://instagram.com">Home</a></li>
-                    <li><a href="https://instagram.com">Sobre</a></li>
-                    <li><a href="https://instagram.com">Serviços</a></li>
-                    <li><a href="https://instagram.com">Contato</a></li>
+                    <li><a href="https://instagram.com">Quem sou eu?</a></li>
+                    <li><a href="https://instagram.com">Alguns Trabalhos</a></li>
+                    <li><a href="https://instagram.com">Metricas/Rede Social</a></li>
+                    <li><a href="https://instagram.com">Contatos</a></li>
+
+
                 </ul>
             </nav>
 
@@ -184,10 +228,10 @@ const Portfolio = () => {
                     <p>Convido você a conhecer mais sobre meu trabalho e descobrir como
                         podemos construir algo incrível juntos!</p>
                 </div>
+
                 <div className="abaut-images">
-                    <div className="abaut-image-carousel">
-                        <img src={images[currentImageIndex]} alt="" />
-                    </div>
+                    <SliderImage images={sliderImage} />;
+
                 </div>
             </section>
 
@@ -195,28 +239,33 @@ const Portfolio = () => {
             <section className="portfolio-projects">
                 <h1 className="section-title">ALGUNS TRABALHOS</h1>
                 <p className="section-sub-title" >Estes são alguns dos trabalhos que prestei.</p>
-                <div className=".projects-container">
+                <div className="projects-container">
                     <div className="projects-grid">
-                        <Card
-                            image={logo_cacau_brasil}
-                            title="Brasil Cacau"
-                            description="Campanha especial para a marca Brasil Cacau."
-                        />
-                        <Card
-                            image={logo_milkymoo}
-                            title="MilkyMoo"
-                            description="Colaboração com a MilkyMoo para engajar a audiência."
-                        />
-                        <Card
-                            image={logo_container_baby_kids}
-                            title="Container Baby Kids"
-                            description="Parceria incrível com a Container Baby Kids."
-                        />
-                        <Card
-                            image={logo_sel_fit}
+
+
+                        <FlipCard
+                            images={logo_sel_fit}
                             title="Sel Fit"
                             description="Parceria incrível como Embaixador da Sel Fit."
-                        />
+                            isVertical={true} />
+
+                        <FlipCard
+                            images={logo_cacau_brasil}
+                            title="Brasil Cacau"
+                            description="Campanha especial para a marca Brasil Cacau."
+                            isVertical={true} />
+
+                        <FlipCard
+                            images={logo_milkymoo}
+                            title="MilkyMoo"
+                            description="Colaboração com a MilkyMoo para engajar a audiência."
+                            isVertical={true} />
+                        <FlipCard
+                            images={logo_container_baby_kids}
+                            title="Container Baby Kids"
+                            description="Parceria incrível com a Container Baby Kids."
+                            isVertical={true} />
+
 
                     </div>
                 </div>
@@ -248,8 +297,11 @@ const Portfolio = () => {
                         </div>
                         <div className="stat-item">
                             <FaUserClock className="stat-icon" />
-                            <p>
+                            <p className="stat-item-title">
                                 <strong>Faixa etária:</strong>
+
+                            </p>
+                            <p className="stat-item-values">
                                 <br /> 25 a 34 - 43,4%
                                 <br /> 35 a 44 - 34,7%
                             </p>
@@ -258,12 +310,35 @@ const Portfolio = () => {
                     {/* Segunda parte - Mosaico de Imagens */}
                     <div className="image-mosaic">
                         <div className="large-image">
-                            <img src={imagem_03} alt="Imagem grande" />
+                            <img src={frame_phone} alt="Imagem grande" />
                         </div>
-                        <div className="small-images">
-                            <img src={imagem_01} alt="Imagem 2" />
-                            <img src={imagem_02} alt="Imagem 3" />
-                            <img src={imagem_03} alt="Imagem 4" />
+                        <div className="small-videos">
+                            <div className="small-video"> <InstagramVideoFrame
+                                url="https://www.instagram.com/reel/DA7CoOcPSlJ/"
+                                views="120K"
+                                likes="8.5K"
+                                interactions="3.2K"
+                            /></div>
+                            <div className="small-video"> <InstagramVideoFrame
+                                url="https://www.instagram.com/reel/DA7CoOcPSlJ/"
+                                views="120K"
+                                likes="8.5K"
+                                interactions="3.2K"
+                            /></div>
+                            <div className="small-video"> <InstagramVideoFrame
+                                url="https://www.instagram.com/reel/DA7CoOcPSlJ/"
+                                views="120K"
+                                likes="8.5K"
+                                interactions="3.2K"
+                            /></div>
+                            <div className="small-video"> <InstagramVideoFrame
+                                url="https://www.instagram.com/reel/DA7CoOcPSlJ/"
+                                views="120K"
+                                likes="8.5K"
+                                interactions="3.2K"
+                            /></div>
+
+
                         </div>
                     </div>
                 </div>

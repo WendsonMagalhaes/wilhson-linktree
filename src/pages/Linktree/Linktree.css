@@ -1,5 +1,5 @@
 .gradient-background {
-    background: linear-gradient(to bottom, #FF914D, #FF6300);
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -48,7 +48,7 @@
     height: 20%;
     bottom: -40px;
     left: -20px;
-    background: linear-gradient(to top, #FF914D, #FF6300);
+    background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
     filter: blur(10px);
     opacity: 1.9;
     pointer-events: none;
@@ -91,20 +91,20 @@
 
 .profile-info-rede-social a {
     font-size: 40px;
-    color: #ffffff;
+    color: var(--secondary-text-color);
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .profile-info-rede-social a:hover {
     transform: scale(1.2);
-    color: #004D80;
+    color: var(--hover-color);
 }
 
 
 .profile-info-links a {
     display: block;
-    background: #ffffff;
-    color: #004D80;
+    background: var(--secondary-text-color);
+    color: var(--hover-color);
     text-decoration: none;
     padding: 10px;
     margin: 10px 0;
@@ -114,6 +114,6 @@
 }
 
 .profile-info-links a:hover {
-    background: #004D80;
-    color: #ffffff;
+    background: var(--hover-color);
+    color: var(--secondary-text-color);
 }

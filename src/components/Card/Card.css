@@ -1,5 +1,5 @@
 .project-card {
-    background: #A6A6A6;
+    background: var(--background-color);
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
@@ -23,11 +23,11 @@
 
 .project-card h3 {
     font-size: 1.5rem;
-    color: #000;
+    color: var(--primary-text-color);
     margin: 10px 0;
 }
 
 .project-card p {
     font-size: 1rem;
-    color: #222;
+    color: var(--primary-text-color);
 }

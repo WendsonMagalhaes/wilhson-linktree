@@ -59,7 +59,7 @@
     display: inline-block;
     width: 50px;
     height: 50px;
-    border: 3px solid #bdc3c7;
+    border: 3px solid var(--background-color);
     background-size: cover;
     background-position: center;
     box-sizing: border-box;
@@ -140,7 +140,7 @@
     margin: 0;
     list-style: none;
     height: 85vh;
-    border: 5px solid #bdc3c7;
+    border: 5px solid var(--background-color);
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -150,7 +150,7 @@
     font-size: 16px;
     letter-spacing: 2px;
     line-height: 2.7;
-    color: #343434;
+    color: var(--primary-text-color);
     writing-mode: vertical-rl;
     opacity: 0;
     pointer-events: none;

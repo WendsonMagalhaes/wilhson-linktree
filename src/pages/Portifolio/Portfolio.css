@@ -41,10 +41,18 @@ body {
     gap: 20px;
 }
 
+
+
 .icon-social {
     font-size: 25px;
     color: var(--secondary-text-color);
 }
+
+.icon-social:hover {
+    color: var(--hover-color);
+}
+
+
 
 /* Menu */
 .menu {

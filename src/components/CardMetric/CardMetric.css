@@ -1,5 +1,5 @@
 .metric-card {
-    background: #ffffff;
+    background: var(--secondary-text-color);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -17,7 +17,7 @@
 .metric-icon {
     font-size: 35px;
     margin-bottom: 5px;
-    color: #FF914D;
+    color: var(--primary-color);
 }
 
 .metric-value {
@@ -27,7 +27,7 @@
 
 .metric-label {
     font-size: 14px;
-    color: #666;
+    color: var(--border-color);
 }
 
 @media (max-width: 480px) {
@@ -50,6 +50,6 @@
 
     .metric-label {
         font-size: 14px;
-        color: #666;
+        color: var(--border-color);
     }
 }
